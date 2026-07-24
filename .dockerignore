@@ -6,8 +6,5 @@ dist
 !README.md
 .eslintrc*
 .prettierrc
-nest-cli.json
-tsconfig*.json
 test
-src
 .npmrc
