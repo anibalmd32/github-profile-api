@@ -86,6 +86,8 @@ GET /user/anibalmd32
 | `npm run format` | Format with Prettier |
 | `npm run docker:build` | Build Docker image |
 | `npm run docker:run` | Run container with `.env` |
+| `npm run deploy` | Deploy to Vercel (production) |
+| `npm run deploy:preview` | Deploy to Vercel (preview) |
 
 ## Docker
 
