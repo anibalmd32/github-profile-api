@@ -25,7 +25,14 @@ async function bootstrap(): Promise<express.Express> {
     .build();
 
   const document = SwaggerModule.createDocument(app, swaggerConfig);
-  SwaggerModule.setup('docs', app, document);
+  const swaggerAssets = 'https://cdn.jsdelivr.net/npm/swagger-ui-dist@5.32.8';
+  SwaggerModule.setup('docs', app, document, {
+    customCssUrl: `${swaggerAssets}/swagger-ui.css`,
+    customJs: [
+      `${swaggerAssets}/swagger-ui-bundle.js`,
+      `${swaggerAssets}/swagger-ui-standalone-preset.js`,
+    ],
+  });
 
   await app.init();
 
