@@ -4,10 +4,10 @@ import request from 'supertest';
 import { App } from 'supertest/types';
 import { AppModule } from './../src/app.module';
 
-describe('AppController (e2e)', () => {
+describe('UserController (e2e)', () => {
   let app: INestApplication<App>;
 
-  beforeEach(async () => {
+  beforeAll(async () => {
     const moduleFixture: TestingModule = await Test.createTestingModule({
       imports: [AppModule],
     }).compile();
@@ -16,14 +16,20 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
-    return request(app.getHttpServer())
-      .get('/')
-      .expect(200)
-      .expect('Hello World!');
+  afterAll(async () => {
+    await app.close();
   });
 
-  afterEach(async () => {
-    await app.close();
+  it('GET /user/:username returns 200 and profile data', () => {
+    return request(app.getHttpServer())
+      .get('/user/testuser')
+      .expect(200)
+      .expect((res) => {
+        expect(res.body).toHaveProperty('login', 'testuser');
+        expect(res.body).toHaveProperty('name', 'Test User');
+        expect(res.body).toHaveProperty('public_repos', 5);
+        expect(res.body).toHaveProperty('followers', 10);
+        expect(res.body).toHaveProperty('following', 3);
+      });
   });
 });
