@@ -42,7 +42,7 @@ The server starts at `http://localhost:3000`. Swagger docs are served at `http:/
 |---|---|---|---|
 | `PORT` | No | `3000` | Server port |
 | `NODE_ENV` | No | `development` | Runtime environment |
-| `GITHUB_TOKEN` | No | — | GitHub personal access token for authenticated requests |
+| `GITHUB_TOKEN` | YES | — | GitHub personal access token for authenticated requests |
 
 ## API
 
