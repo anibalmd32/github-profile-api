@@ -84,6 +84,22 @@ GET /user/anibalmd32
 | `npm run test:e2e` | Run end-to-end tests |
 | `npm run lint` | Lint and auto-fix |
 | `npm run format` | Format with Prettier |
+| `npm run docker:build` | Build Docker image |
+| `npm run docker:run` | Run container with `.env` |
+
+## Docker
+
+The Dockerfile uses a multi-stage build to produce a minimal production image based on `node:22-alpine`.
+
+```bash
+# Build the image
+npm run docker:build
+
+# Run the container
+npm run docker:run
+```
+
+The container exposes port `3000` and reads environment variables from your `.env` file.
 
 ## Project structure
 
