@@ -6,7 +6,7 @@ export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get(':username')
-  getGithubProfileInfoByUsername(@Param() username: string) {
+  async getGithubProfileInfoByUsername(@Param('username') username: string) {
     return this.userService.getGithubProfileInfoByUsername(username);
   }
 }
