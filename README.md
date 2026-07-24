@@ -14,7 +14,6 @@ REST API built with [NestJS](https://nestjs.com/) that fetches and serves GitHub
 
 - Node.js 22+
 - npm 10+
-- A GitHub [personal access token](https://github.com/settings/tokens) (optional, but recommended to raise API rate limits)
 
 ## Getting started
 
@@ -28,7 +27,6 @@ npm install
 
 # Set up environment variables
 cp .env.example .env
-# Edit .env and add your GITHUB_TOKEN
 
 # Start in development mode
 npm run start:dev
@@ -42,7 +40,6 @@ The server starts at `http://localhost:3000`. Swagger docs are served at `http:/
 |---|---|---|---|
 | `PORT` | No | `3000` | Server port |
 | `NODE_ENV` | No | `development` | Runtime environment |
-| `GITHUB_TOKEN` | YES | — | GitHub personal access token for authenticated requests |
 
 ## API
 
