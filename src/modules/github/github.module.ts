@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { Octokit } from '@octokit/rest';
 import { OCTOKIT_CLIENT } from './github.constants';
 import { GithubService } from './github.service';
 
@@ -7,7 +6,10 @@ import { GithubService } from './github.service';
   providers: [
     {
       provide: OCTOKIT_CLIENT,
-      useFactory: () => new Octokit(),
+      useFactory: async () => {
+        const { Octokit } = await import('@octokit/rest');
+        return new Octokit();
+      },
     },
     GithubService,
   ],
